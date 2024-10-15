@@ -10,7 +10,10 @@ export class TeamService {
 
   async create(data: TeamDto) {
     const team = await this.prisma.team.create({
-      data,
+      data: {
+        name: data.name,
+        groupId: data.groupId,
+      }
     });
 
     return team;
@@ -40,6 +43,7 @@ export class TeamService {
       },
       include: {
         users: true, // Inclui os usuários associados ao time
+        Group: true,
       },
     });
   };
@@ -57,7 +61,8 @@ export class TeamService {
 
     return await this.prisma.team.update({
       data: {
-        name: data.name, 
+        name: data.name,
+        groupId: data.groupId, 
       },
       where: {
         id,

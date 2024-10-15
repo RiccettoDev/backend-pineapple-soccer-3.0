@@ -24,6 +24,7 @@ export class UserService {
         pass: data.pass,
         headbutt: data.headbutt,
         teamId: data.teamId,
+        groupId: data.groupId,
       },
       select: {
         id: true,
@@ -40,6 +41,7 @@ export class UserService {
         pass: true,
         headbutt: true,
         teamId: true,
+        groupId: true,
         createdAt: true,
         updatedAt: true,
       }
@@ -64,6 +66,7 @@ export class UserService {
         pass: true,
         headbutt: true,
         teamId: true,
+        groupId: true,
         createdAt: true,
         updatedAt: true,
       }
@@ -133,6 +136,7 @@ export class UserService {
         pass: data.pass,
         headbutt: data.headbutt,
         teamId: data.teamId,
+        groupId: data.groupId,
       },
       where: {
         id,
@@ -152,6 +156,7 @@ export class UserService {
         pass: true,
         headbutt: true,
         teamId: true,
+        groupId: true,
         createdAt: true,
         updatedAt: true,
       }
@@ -188,6 +193,7 @@ export class UserService {
         pass: true,
         headbutt: true,
         teamId: true,
+        groupId: true,
         createdAt: true,
         updatedAt: true,
       }

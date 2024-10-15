@@ -53,6 +53,8 @@ export class UserDto {
 
   teamId?: number;
 
+  groupId?: number;
+
   createdAt?: Date;
   updatedAt?: Date;
 }
