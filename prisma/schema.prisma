@@ -21,8 +21,17 @@ model User {
   email    String @unique @db.VarChar(100)
   password String @db.VarChar(100)
   age      Int
-  team     Team?  @relation(fields: [teamId], references: [id])
-  teamId   Int?
+  stars    Int    @default(0) // Adicione um valor padrão aqui
+  position String @default("DF") @db.VarChar(2) // Valor padrão para "position"
+  force    Int    @default(0)
+  attack   Int    @default(0)
+  defense  Int    @default(0)
+  kick     Int    @default(0)
+  pass     Int    @default(0)
+  headbutt Int    @default(0)
+
+  team   Team? @relation(fields: [teamId], references: [id])
+  teamId Int?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -15,14 +15,59 @@ export class UserService {
         email: data.email,
         password: data.password,
         age: data.age,
+        stars: data.stars,
+        position: data.position,
+        force: data.force,
+        attack: data.attack,
+        defense: data.defense,
+        kick: data.kick,
+        pass: data.pass,
+        headbutt: data.headbutt,
         teamId: data.teamId,
       },
+      select: {
+        id: true,
+        name: true,
+        surname: true,
+        email: true,
+        age: true,
+        stars: true,
+        position: true,
+        force: true,
+        attack: true,
+        defense: true,
+        kick: true,
+        pass: true,
+        headbutt: true,
+        teamId: true,
+        createdAt: true,
+        updatedAt: true,
+      }
     });
     return user;
   };
 
   async findAll() {
-    return await this.prisma.user.findMany();
+    return await this.prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        surname: true,
+        email: true,
+        age: true,
+        stars: true,
+        position: true,
+        force: true,
+        attack: true,
+        defense: true,
+        kick: true,
+        pass: true,
+        headbutt: true,
+        teamId: true,
+        createdAt: true,
+        updatedAt: true,
+      }
+    });
   };
 
   async findUserById(id: number) {
@@ -39,6 +84,24 @@ export class UserService {
     return await this.prisma.user.findUnique({
       where: {
         id,
+      },
+      select: {
+        id: true,
+        name: true,
+        surname: true,
+        email: true,
+        age: true,
+        stars: true,
+        position: true,
+        force: true,
+        attack: true,
+        defense: true,
+        kick: true,
+        pass: true,
+        headbutt: true,
+        teamId: true,
+        createdAt: true,
+        updatedAt: true,
       }
     });
   };
@@ -61,10 +124,36 @@ export class UserService {
         email: data.email,
         password: data.password,
         age: data.age,
+        stars: data.stars,
+        position: data.position,
+        force: data.force,
+        attack: data.attack,
+        defense: data.defense,
+        kick: data.kick,
+        pass: data.pass,
+        headbutt: data.headbutt,
         teamId: data.teamId,
       },
       where: {
         id,
+      },
+      select: {
+        id: true,
+        name: true,
+        surname: true,
+        email: true,
+        age: true,
+        stars: true,
+        position: true,
+        force: true,
+        attack: true,
+        defense: true,
+        kick: true,
+        pass: true,
+        headbutt: true,
+        teamId: true,
+        createdAt: true,
+        updatedAt: true,
       }
     });
   };
@@ -83,6 +172,24 @@ export class UserService {
     return await this.prisma.user.delete({
       where: {
         id,
+      },
+      select: {
+        id: true,
+        name: true,
+        surname: true,
+        email: true,
+        age: true,
+        stars: true,
+        position: true,
+        force: true,
+        attack: true,
+        defense: true,
+        kick: true,
+        pass: true,
+        headbutt: true,
+        teamId: true,
+        createdAt: true,
+        updatedAt: true,
       }
     });
   };
