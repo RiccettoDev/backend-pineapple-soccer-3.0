@@ -21,8 +21,8 @@ model User {
   email    String @unique @db.VarChar(100)
   password String @db.VarChar(100)
   age      Int
-  stars    Int    @default(0) // Adicione um valor padrão aqui
-  position String @default("DF") @db.VarChar(2) // Valor padrão para "position"
+  stars    Int    @default(0)
+  position String @default("DF") @db.VarChar(2)
   force    Int    @default(0)
   attack   Int    @default(0)
   defense  Int    @default(0)
@@ -35,6 +35,8 @@ model User {
 
   Group   Group? @relation(fields: [groupId], references: [id])
   groupId Int?
+
+  matches MatchUser[] // Relacionamento com a tabela intermediária MatchUser
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -50,6 +52,9 @@ model Team {
   Group   Group? @relation(fields: [groupId], references: [id])
   groupId Int?
 
+  Match   Match? @relation(fields: [matchId], references: [id])
+  matchId Int?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -60,11 +65,38 @@ model Group {
   id   Int    @id @default(autoincrement())
   name String @db.VarChar(100)
 
-  users User[]
-  teams Team[]
+  users   User[]
+  teams   Team[]
+  matches Match[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("groups")
+}
+
+model Match {
+  id   Int      @id @default(autoincrement())
+  day  DateTime
+  hour String   @db.VarChar(100)
+
+  group   Group @relation(fields: [groupId], references: [id])
+  groupId Int
+
+  teams Team[] // Times relacionados ao match
+  users MatchUser[] // Relacionamento com a tabela intermediária MatchUser
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("matches")
+}
+
+model MatchUser {
+  userId  Int
+  matchId Int
+  user    User  @relation(fields: [userId], references: [id])
+  match   Match @relation(fields: [matchId], references: [id])
+
+  @@id([userId, matchId]) // Chave composta para evitar duplicidade
 }

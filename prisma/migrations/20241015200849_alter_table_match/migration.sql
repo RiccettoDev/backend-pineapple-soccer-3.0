@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "matches" ALTER COLUMN "hour" SET DATA TYPE VARCHAR(100);
