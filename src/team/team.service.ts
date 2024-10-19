@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/dataBase/prisma.service';
 import { TeamDto } from './dto/team.dto';
@@ -6,7 +5,7 @@ import { TeamDto } from './dto/team.dto';
 @Injectable()
 export class TeamService {
 
-  constructor (private prisma: PrismaService) {};
+  constructor(private prisma: PrismaService) { };
 
   async create(data: TeamDto) {
     const team = await this.prisma.team.create({
@@ -33,7 +32,7 @@ export class TeamService {
       },
     });
 
-    if(!teamExists) {
+    if (!teamExists) {
       throw new NotFoundException(`Team with ID ${id} not found!`);
     };
 
@@ -48,21 +47,21 @@ export class TeamService {
     });
   };
 
-  async update(id:number, data: TeamDto) {
+  async update(id: number, data: TeamDto) {
     const teamExists = await this.prisma.team.findUnique({
       where: {
         id,
       },
     });
 
-    if(!teamExists) {
+    if (!teamExists) {
       throw new NotFoundException(`Team with ID ${id} not found!`);
     };
 
     return await this.prisma.team.update({
       data: {
         name: data.name,
-        groupId: data.groupId, 
+        groupId: data.groupId,
       },
       where: {
         id,
@@ -77,7 +76,7 @@ export class TeamService {
       }
     });
 
-    if(!teamExists) {
+    if (!teamExists) {
       throw new NotFoundException(`Team with ID ${id} not found!`);
     };
 

@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { MatchService } from './match.service';
 import { MatchDto } from './dto/match.dto';
 
 @Controller('match')
 export class MatchController {
-  constructor (private readonly matchService: MatchService) {};
+  constructor(private readonly matchService: MatchService) { };
 
   @Post()
   async create(@Body() data: MatchDto) {

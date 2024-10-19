@@ -13,6 +13,9 @@ RUN npm install
 # Copiar o restante da aplicação
 COPY . .
 
+# Se você precisar do Nest CLI globalmente
+RUN npm install -g @nestjs/cli
+
 # Rodar o Prisma
 RUN npx prisma generate
 

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from './dto/user.dto';
@@ -6,7 +5,7 @@ import { UserDto } from './dto/user.dto';
 @Controller('user')
 export class UserController {
 
-  constructor (private readonly userService: UserService) {};
+  constructor(private readonly userService: UserService) { };
 
   @Post()
   async create(@Body() data: UserDto) {

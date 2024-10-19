@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
@@ -6,7 +5,7 @@ import { GroupDto } from './dto/group.dto';
 
 @Injectable()
 export class GroupService {
-  constructor (private prisma: PrismaClient) {};
+  constructor(private prisma: PrismaClient) { };
 
   async create(data: GroupDto) {
     const group = await this.prisma.group.create({
@@ -32,7 +31,7 @@ export class GroupService {
       }
     });
 
-    if(!groupExists) {
+    if (!groupExists) {
       throw new NotFoundException(`Group with ID ${id} not found!`)
     };
 
@@ -58,7 +57,7 @@ export class GroupService {
       }
     });
 
-    if(!groupExists) {
+    if (!groupExists) {
       throw new NotFoundException(`Group with ID ${id} not found!`)
     };
 
@@ -87,7 +86,7 @@ export class GroupService {
       }
     });
 
-    if(!groupExists) {
+    if (!groupExists) {
       throw new NotFoundException(`Group with ID ${id} not found!`)
     };
 

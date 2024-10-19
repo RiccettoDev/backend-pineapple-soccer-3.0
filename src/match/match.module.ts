@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 
 import { Module } from '@nestjs/common';
 import { MatchService } from './match.service';
@@ -9,4 +8,4 @@ import { MatchController } from './match.controller';
   providers: [MatchService, PrismaService],
   controllers: [MatchController],
 })
-export class MatchModule {}
+export class MatchModule { }

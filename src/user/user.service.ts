@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/dataBase/prisma.service';
 import { UserDto } from './dto/user.dto';
 
 @Injectable()
 export class UserService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   async create(data: UserDto) {
     const user = await this.prisma.user.create({
@@ -80,7 +79,7 @@ export class UserService {
       }
     });
 
-    if(!userExists) {
+    if (!userExists) {
       throw new NotFoundException(`User with ID ${id} not found!`);
     };
 
@@ -116,7 +115,7 @@ export class UserService {
       }
     });
 
-    if(!userExists) {
+    if (!userExists) {
       throw new NotFoundException(`User with ID ${id} not found!`);
     };
 
@@ -170,7 +169,7 @@ export class UserService {
       }
     });
 
-    if(!userExists) {
+    if (!userExists) {
       throw new NotFoundException(`User with ID ${id} not found!`);
     };
 

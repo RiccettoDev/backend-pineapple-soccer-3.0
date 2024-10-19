@@ -1,9 +1,8 @@
-/* eslint-disable prettier/prettier */
 
 import { IsEmail, IsNotEmpty, IsString, Length } from "class-validator";
 
 export class UserDto {
-  
+
   @IsNotEmpty()
   @Length(5, 30)
   @IsString()
@@ -23,7 +22,7 @@ export class UserDto {
   @IsNotEmpty()
   @Length(8, 20)
   password: string;
-  
+
   @IsNotEmpty()
   age: number;
 
@@ -32,7 +31,7 @@ export class UserDto {
 
   @IsNotEmpty()
   position: string;
-  
+
   @IsNotEmpty()
   force: number;
 

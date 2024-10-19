@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { GroupService } from './group.service';
@@ -6,7 +5,7 @@ import { GroupDto } from './dto/group.dto';
 
 @Controller('group')
 export class GroupController {
-  constructor (private readonly groupService: GroupService) {};
+  constructor(private readonly groupService: GroupService) { };
 
   @Post()
   async create(@Body() data: GroupDto) {

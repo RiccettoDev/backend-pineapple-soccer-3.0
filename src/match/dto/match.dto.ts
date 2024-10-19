@@ -1,9 +1,8 @@
-/* eslint-disable prettier/prettier */
 
 import { Team, User } from "@prisma/client";
 
 export class MatchDto {
-  id?: number; 
+  id?: number;
 
   day: Date;
   hour: string;
@@ -16,5 +15,5 @@ export class MatchDto {
   users: User[];
 
   createdAt: Date;
-  updatedAt: Date;  
+  updatedAt: Date;
 }
