@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/dataBase/prisma.service';
 import { UserDto } from './dto/user.dto';
@@ -5,7 +6,7 @@ import { UserDto } from './dto/user.dto';
 @Injectable()
 export class UserService {
   constructor(private prisma: PrismaService) { }
-
+  
   async create(data: UserDto) {
     const user = await this.prisma.user.create({
       data: {
@@ -22,6 +23,7 @@ export class UserService {
         kick: data.kick,
         pass: data.pass,
         headbutt: data.headbutt,
+        image: data.image,
         teamId: data.teamId,
         groupId: data.groupId,
       },
@@ -39,6 +41,7 @@ export class UserService {
         kick: true,
         pass: true,
         headbutt: true,
+        image: true,
         teamId: true,
         groupId: true,
         createdAt: true,
@@ -64,6 +67,7 @@ export class UserService {
         kick: true,
         pass: true,
         headbutt: true,
+        image: true,
         teamId: true,
         groupId: true,
         createdAt: true,
@@ -101,6 +105,7 @@ export class UserService {
         kick: true,
         pass: true,
         headbutt: true,
+        image: true,
         teamId: true,
         createdAt: true,
         updatedAt: true,
@@ -134,6 +139,7 @@ export class UserService {
         kick: data.kick,
         pass: data.pass,
         headbutt: data.headbutt,
+        image: data.image,
         teamId: data.teamId,
         groupId: data.groupId,
       },
@@ -154,6 +160,7 @@ export class UserService {
         kick: true,
         pass: true,
         headbutt: true,
+        image: true,
         teamId: true,
         groupId: true,
         createdAt: true,
@@ -191,6 +198,7 @@ export class UserService {
         kick: true,
         pass: true,
         headbutt: true,
+        image: true,
         teamId: true,
         groupId: true,
         createdAt: true,

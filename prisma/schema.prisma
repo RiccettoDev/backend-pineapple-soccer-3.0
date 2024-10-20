@@ -29,6 +29,7 @@ model User {
   kick     Int    @default(0)
   pass     Int    @default(0)
   headbutt Int    @default(0)
+  image    String @default("")
 
   team   Team? @relation(fields: [teamId], references: [id])
   teamId Int?

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 
 import { IsEmail, IsNotEmpty, IsString, Length } from "class-validator";
 
@@ -49,6 +50,8 @@ export class UserDto {
 
   @IsNotEmpty()
   headbutt: number;
+
+  image: string;
 
   teamId?: number;
 
